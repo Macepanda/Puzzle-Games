@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://5pf6o8ntl2xq"]
+
+[ext_resource type="Script" path="res://scenes/minesweeper/minesweeper_main.gd" id="1_ql6n6"]
+[ext_resource type="Texture2D" uid="uid://b8rur8e51q8vd" path="res://assets/minesweeper/bg.png" id="1_ynhjd"]
+[ext_resource type="PackedScene" uid="uid://dgeonpkqnd315" path="res://scenes/minesweeper/tile_map.tscn" id="3_gll2p"]
+
+[node name="minesweeper-main" type="Node"]
+script = ExtResource("1_ql6n6")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_ynhjd")
+offset = Vector2(575, 350)
+
+[node name="TileMap" parent="." instance=ExtResource("3_gll2p")]
+position = Vector2(200, 0)
