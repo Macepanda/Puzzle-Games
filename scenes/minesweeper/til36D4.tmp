@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgeonpkqnd315"]
+
+[ext_resource type="Texture2D" uid="uid://c4q1tsyfsst58" path="res://assets/minesweeper/Tileset.png" id="1_bfhi8"]
+[ext_resource type="Script" path="res://scenes/minesweeper/tile_map.gd" id="2_ibuhw"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4e5fn"]
+texture = ExtResource("1_bfhi8")
+texture_region_size = Vector2i(50, 50)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:1/0 = 0
+6:1/0 = 0
+5:1/0 = 0
+4:1/0 = 0
+3:1/0 = 0
+2:1/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_jbmy7"]
+tile_size = Vector2i(50, 50)
+sources/0 = SubResource("TileSetAtlasSource_4e5fn")
+
+[node name="TileMap" type="TileMap"]
+tile_set = SubResource("TileSet_jbmy7")
+format = 2
+layer_0/name = "Mines"
+layer_1/name = "Numbers"
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "Grass"
+layer_2/tile_data = PackedInt32Array()
+layer_3/name = "Flags"
+layer_3/tile_data = PackedInt32Array()
+layer_4/name = "Hover"
+layer_4/tile_data = PackedInt32Array()
+script = ExtResource("2_ibuhw")

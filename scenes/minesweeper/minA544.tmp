@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://5pf6o8ntl2xq"]
+
+[ext_resource type="Texture2D" uid="uid://b8rur8e51q8vd" path="res://assets/minesweeper/bg.png" id="1_ynhjd"]
+[ext_resource type="Script" path="res://scenes/minesweeper/gameboard.gd" id="2_3v8x4"]
+[ext_resource type="PackedScene" uid="uid://dgeonpkqnd315" path="res://scenes/minesweeper/tile_map.tscn" id="3_gll2p"]
+[ext_resource type="PackedScene" uid="uid://bywik4sbaptqe" path="res://scenes/minesweeper/hud.tscn" id="5_eh152"]
+[ext_resource type="PackedScene" uid="uid://cdikxlhwrsxx1" path="res://scenes/minesweeper/game_over.tscn" id="6_4iqqx"]
+
+[node name="MineSweeperMain" type="Node"]
+
+[node name="HUD" parent="." instance=ExtResource("5_eh152")]
+unique_name_in_owner = true
+offset = Vector2(201, 0)
+transform = Transform2D(1, 0, 0, 1, 201, 0)
+
+[node name="GameBoard" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -375.0
+offset_top = 50.0
+offset_right = 375.0
+offset_bottom = 750.0
+grow_horizontal = 2
+script = ExtResource("2_3v8x4")
+
+[node name="Background" type="Sprite2D" parent="GameBoard"]
+position = Vector2(375, 350)
+texture = ExtResource("1_ynhjd")
+
+[node name="TileMap" parent="GameBoard" instance=ExtResource("3_gll2p")]
+unique_name_in_owner = true
+
+[node name="GameOver" parent="." instance=ExtResource("6_4iqqx")]
+unique_name_in_owner = true
+process_mode = 2
+offset = Vector2(451, 325)
+transform = Transform2D(1, 0, 0, 1, 451, 325)
+
+[connection signal="end_game" from="GameBoard/TileMap" to="GameBoard" method="_on_tile_map_end_game"]
+[connection signal="flag_placed" from="GameBoard/TileMap" to="GameBoard" method="_on_tile_map_flag_placed"]
+[connection signal="flag_removed" from="GameBoard/TileMap" to="GameBoard" method="_on_tile_map_flag_removed"]
+[connection signal="game_won" from="GameBoard/TileMap" to="GameBoard" method="_on_tile_map_game_won"]
+[connection signal="restart" from="GameOver" to="GameBoard" method="_on_game_over_restart"]
