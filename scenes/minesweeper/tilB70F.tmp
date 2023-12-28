@@ -27,18 +27,15 @@ tile_size = Vector2i(50, 50)
 sources/0 = SubResource("TileSetAtlasSource_4e5fn")
 
 [node name="TileMap" type="TileMap"]
-texture_filter = 1
 tile_set = SubResource("TileSet_jbmy7")
 format = 2
-layer_0/name = "Background"
-layer_1/name = "Mines"
+layer_0/name = "Mines"
+layer_1/name = "Numbers"
 layer_1/tile_data = PackedInt32Array()
-layer_2/name = "Numbers"
+layer_2/name = "Grass"
 layer_2/tile_data = PackedInt32Array()
-layer_3/name = "Grass"
+layer_3/name = "Flags"
 layer_3/tile_data = PackedInt32Array()
-layer_4/name = "Flags"
+layer_4/name = "Hover"
 layer_4/tile_data = PackedInt32Array()
-layer_5/name = "Hover"
-layer_5/tile_data = PackedInt32Array()
 script = ExtResource("2_ibuhw")

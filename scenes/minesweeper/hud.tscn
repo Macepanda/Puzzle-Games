@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://bywik4sbaptqe"]
+
+[ext_resource type="Texture2D" uid="uid://dubbhy4p3110k" path="res://assets/minesweeper/flag.png" id="1_q8egr"]
+[ext_resource type="Texture2D" uid="uid://cw8i177c2fgp4" path="res://assets/minesweeper/timer.png" id="2_ps0ov"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2if4"]
+bg_color = Color(0.117647, 0.396078, 0, 1)
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 750.0
+offset_bottom = 50.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_m2if4")
+
+[node name="Flag" type="Sprite2D" parent="Panel"]
+position = Vector2(85, 0)
+texture = ExtResource("1_q8egr")
+offset = Vector2(25, 25)
+
+[node name="RemainingMines" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 8.0
+offset_right = 175.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 24
+text = "40
+"
+
+[node name="Timer" type="Sprite2D" parent="Panel"]
+position = Vector2(595, 0)
+texture = ExtResource("2_ps0ov")
+offset = Vector2(25, 25)
+
+[node name="StopWatch" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 645.0
+offset_top = 8.0
+offset_right = 685.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 24
+text = "0"
